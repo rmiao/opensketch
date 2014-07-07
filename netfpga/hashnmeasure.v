@@ -1,6 +1,35 @@
 // This module hashnmeasure should be modified 
 // by adding further instantiation of hardware blocks to create your architecture 
 
+`include "../../lib/verilog/core/common/src/NF_2.1_defines.v"
+`define OPENSKETCH_ENTRY_WIDTH                      248
+`define PKT_SIZE_WIDTH						12
+
+`define OPENSKETCH_NUM_HASH_FUNCTION 8
+`define OPENSKETCH_HASH_INDEX_WIDTH 32 * `OPENSKETCH_NUM_HASH_FUNCTION
+`define OPENSKETCH_ACTION_WIDTH 64
+`define CPCI_NF2_DATA_WIDTH 32
+`define UDP_REG_ADDR_WIDTH 23
+`define OPENSKETCH_WILDCARD_NUM_DATA_WORDS_USED `OPENSKETCH_ACTION_WIDTH>>log2(`CPCI_NF2_DATA_WIDTH)
+`define OPENSKETCH_WILDCARD_NUM_CMP_WORDS_USED `OPENSKETCH_NUM_HASH_FUNCTION
+`define OPENSKETCH_WILDCARD_NUM_SUBTABLE 8
+`define OPENSKETCH_WILDCARD_TABLE_SIZE 32 * `OPENSKETCH_WILDCARD_NUM_SUBTABLE
+`define OPENSKETCH_WILDCARD_LOOKUP_BLOCK_ADDR 13
+`define OPENSKETCH_WILDCARD_LOOKUP_REG_ADDR_WIDTH 10
+`define OPENSKETCH_FIELD_COUNTER_WIDTH 72
+
+// SRAM address width
+`define SRAM_ADDR_WIDTH                           19
+
+// SRAM data width
+`define SRAM_DATA_WIDTH                           36
+
+
+`define NUM_REGS_USED 28
+
+`define HASHNMEASURE_BLOCK_ADDR 14
+`define HASHNMEASURE_REG_ADDR_WIDTH 10
+
 module hashnmeasure #(
       parameter DATA_WIDTH = 64,
       parameter CTRL_WIDTH = DATA_WIDTH/8,
